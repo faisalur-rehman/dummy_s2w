@@ -8,6 +8,7 @@ const TextField = props => {
     icon = null,
     onPress = () => null,
     placeholderColor = colors.placeholderColor,
+    error = null,
   } = props;
   return (
     <>
@@ -24,6 +25,7 @@ const TextField = props => {
           </Pressable>
         )}
       </View>
+      {error && <Text style={styles.error}>{error}</Text>}
     </>
   );
 };
@@ -33,6 +35,10 @@ export default TextField;
 const styles = ScaledSheet.create({
   label: {
     color: colors.labelBlackColor,
+  },
+  error: {
+    color: colors.highRiskColor,
+    marginBottom: '5@s',
   },
   textInput: {
     height: '40@s',

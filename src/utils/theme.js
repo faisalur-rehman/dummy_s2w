@@ -4,6 +4,7 @@ export const colors = {
   whiteColor: '#fff',
   labelBlackColor: '#424242',
   placeholderColor: '#BDBDBD',
+  highRiskColor: '#D35755',
 };
 
 export const fonts = {
