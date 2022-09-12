@@ -6,20 +6,15 @@ import {
   TouchableOpacity,
   Image,
 } from 'react-native';
-import React, { useState, useEffect } from 'react';
+import React, {useState, useEffect} from 'react';
 import {ScaledSheet} from 'react-native-size-matters';
 import PrimaryButton from '../../components/Buttons/PrimaryButton';
 import {NAVIGATION_ROUTES} from '../../navigations/navigationRoutes';
 
 const GetStarted = ({navigation}) => {
-
- 
-  const gotoLogin = values => {
-    console.log('clicked')
-   
-    navigation.navigate(NAVIGATION_ROUTES.LOGIN);
+  const gotoLogin = () => {
+    navigation.navigate(NAVIGATION_ROUTES.FORGET_PASSWORD);
   };
-
 
   return (
     <View style={{flex: 1}}>
@@ -40,10 +35,11 @@ const GetStarted = ({navigation}) => {
             the quality of your health, let's start maintaining health
           </Text>
           <View style={styles.buttonView}>
-            <PrimaryButton 
-             onPress={gotoLogin}
-            title={'Get Started'} 
-            style={styles.buttonWidth} />
+            <PrimaryButton
+              onPress={gotoLogin}
+              title={'Get Started'}
+              style={styles.buttonWidth}
+            />
           </View>
         </ImageBackground>
       </View>
@@ -86,7 +82,7 @@ const styles = ScaledSheet.create({
   },
   buttonWidth: {
     width: '90%',
-    height:'50@s',
+    height: '50@s',
     marginHorizontal: '20@s',
   },
 });
