@@ -5,6 +5,9 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import EnterClassScreen from '../screens/enterClass/EnterClassScreen';
 import LoginScreen from '../screens/login/LoginScreen';
 import ResetPasswordScreen from '../screens/resetPassword/ResetPassword';
+import Splash from '../screens/splash/Splash';
+import GetStarted from '../screens/getStarted/GetStarted';
+import ForgetPassword from '../screens/forgetPassword/ForgetPassword';
 import {NAVIGATION_ROUTES} from './navigationRoutes';
 
 const AuthStack = createNativeStackNavigator();
@@ -20,7 +23,22 @@ function Tabs() {
 }
 function Authentication() {
   return (
-    <AuthStack.Navigator initialRouteName={NAVIGATION_ROUTES.LOGIN}>
+    <AuthStack.Navigator initialRouteName={NAVIGATION_ROUTES.SPLASH}>
+        <AuthStack.Screen
+        name={NAVIGATION_ROUTES.SPLASH}
+        component={Splash}
+        options={{headerShown: false}}
+      />
+        <AuthStack.Screen
+        name={NAVIGATION_ROUTES.GET_STARTED}
+        component={GetStarted}
+        options={{headerShown: false}}
+      />
+        <AuthStack.Screen
+        name={NAVIGATION_ROUTES.FORGET_PASSWORD}
+        component={ForgetPassword}
+        options={{headerShown: false}}
+      />
       <AuthStack.Screen
         name={NAVIGATION_ROUTES.LOGIN}
         component={LoginScreen}
