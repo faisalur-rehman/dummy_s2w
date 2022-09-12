@@ -7,16 +7,10 @@
  */
 
 import React from 'react';
-import LoginScreen from './src/screens/login/LoginScreen';
-import ResetPasswordScreen from './src/screens/resetPassword/ResetPassword';
+import {Routes} from './src/navigations/routes';
 
 const App = () => {
-  return (
-    <>
-      <LoginScreen />
-      {/* <ResetPasswordScreen /> */}
-    </>
-  );
+  return <Routes />;
 };
 
 export default App;

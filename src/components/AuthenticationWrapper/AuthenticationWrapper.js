@@ -1,6 +1,7 @@
-import {Image, SafeAreaView, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
+import {Image, Platform, SafeAreaView, Text, View} from 'react-native';
 import {ScaledSheet} from 'react-native-size-matters';
+import {colors} from '../../utils/theme';
 
 const AuthenticationWrapper = ({children, title = ''}) => {
   return (
@@ -15,7 +16,6 @@ const AuthenticationWrapper = ({children, title = ''}) => {
         />
         <View
           style={{
-            backgroundColor: 'green',
             width: '90%',
             position: 'absolute',
           }}>
@@ -28,7 +28,7 @@ const AuthenticationWrapper = ({children, title = ''}) => {
       <SafeAreaView>
         <Text style={styles.title}>{title}</Text>
       </SafeAreaView>
-      {children}
+      <View style={styles.inputView}>{children}</View>
     </View>
   );
 };
@@ -36,11 +36,15 @@ const AuthenticationWrapper = ({children, title = ''}) => {
 export default AuthenticationWrapper;
 
 const styles = ScaledSheet.create({
+  inputView: {
+    marginHorizontal: '25@s',
+  },
   title: {
     fontWeight: '700',
     fontSize: '24@s',
-    marginTop: '130@s',
+    marginTop: Platform.OS == 'ios' ? '130@s' : '150@s',
     textAlign: 'center',
     marginVertical: '20@s',
+    color: colors.labelBlackColor,
   },
 });
