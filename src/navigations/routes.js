@@ -6,14 +6,15 @@ import EnterClassScreen from '../screens/enterClass/EnterClassScreen';
 import LoginScreen from '../screens/login/LoginScreen';
 import ResetPasswordScreen from '../screens/resetPassword/ResetPassword';
 import {NAVIGATION_ROUTES} from './navigationRoutes';
+import DashboardScreen from '../screens/dashboard/DashboardScreen';
 
 const AuthStack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
 function Tabs() {
   return (
-    <Tab.Navigator>
-      {/* <Tab.Screen name="Feed" component={Feed} /> */}
+    <Tab.Navigator initialRouteName={NAVIGATION_ROUTES.HOME}>
+      <Tab.Screen name={NAVIGATION_ROUTES.HOME} component={DashboardScreen} />
       {/* <Tab.Screen name="Messages" component={Messages} /> */}
     </Tab.Navigator>
   );
@@ -37,7 +38,7 @@ function Authentication() {
         options={{headerShown: false}}
       />
       <AuthStack.Screen
-        name={NAVIGATION_ROUTES.HOME}
+        name={NAVIGATION_ROUTES.TABS}
         component={Tabs}
         options={{headerShown: false}}
       />

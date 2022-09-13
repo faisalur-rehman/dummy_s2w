@@ -21,6 +21,7 @@
     "react-native-screens": "^3.17.0",
     "react-native-size-matters": "^0.4.0",
     "react-native-svg": "^13.1.0",
+    "victory-native": "^36.6.6",
     "yup": "^0.32.11"
   },
   "devDependencies": {

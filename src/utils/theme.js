@@ -5,6 +5,7 @@ export const colors = {
   labelBlackColor: '#424242',
   placeholderColor: '#BDBDBD',
   highRiskColor: '#D35755',
+  blueBorderColor: '#428BC1',
 };
 
 export const fonts = {
