@@ -8,6 +8,7 @@
 
 import React from 'react';
 import {Routes} from './src/navigations/routes';
+import DashboardScreen from './src/screens/dashboard/DashboardScreen';
 
 const App = () => {
   return <Routes />;

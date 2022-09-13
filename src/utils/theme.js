@@ -6,6 +6,9 @@ export const colors = {
   placeholderColor: '#BDBDBD',
   highRiskColor: '#D35755',
   blueBorderColor: '#428BC1',
+  amberRiskColor:'#FF8C39',
+  normaltestColor:'#69BF4B',
+  boxborderColor:"#428BC1"
 };
 
 export const fonts = {

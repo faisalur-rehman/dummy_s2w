@@ -4,44 +4,41 @@ import {ScaledSheet} from 'react-native-size-matters';
 import PasswordEyeIcon from '../../assets/images/SvgImages/EyeIcon';
 import {colors} from '../../utils/theme';
 
-const VitalStatComponent = ({icon, readingTitle, value,style}) => {
+const ClassStats = ({heading, value,style}) => {
   return (
-    <View style={[
-      styles.container,
-      {...style}
+    <View style={styles.container}>
     
-    ]}>
-      {icon}
+      <Text style={[styles.textStyle,
+          {...style}
+      ]}>{heading}</Text>
       <Text style={styles.readingStyle}>{value}</Text>
-      <Text style={styles.textStyle}>{readingTitle}</Text>
+      
     </View>
   );
 };
 
-export default VitalStatComponent;
+export default ClassStats;
 
 const styles = ScaledSheet.create({
   container: {
-    borderWidth: '1@s',
-    borderColor: colors.blueBorderColor,
-    width: '32%',
+    borderWidth: '1.5@s',
+    borderColor: colors.textInputBorderColor,
+    width: '23%',
     justifyContent: 'center',
     alignItems: 'center',
     margin: '2@s',
     borderRadius: '5@s',
-    height: '75@s',
-    // backgroundColor:"green",
+    height: '70@s',
+  },
+  textStyle: {
+    fontSize: '11@s',
+    marginTop:'5@s',
     
   },
   readingStyle: {
     fontSize: '18@s',
-    marginVertical: '1@s',
-    color:"#868686",
-    fontWeight:'500'
+    marginVertical: '10@s',
+    fontWeight:'700'
   },
-  textStyle: {
-    fontSize: '12@s',
-    color:'#424242',
-    fontWeight:"700"
-  },
+  
 });

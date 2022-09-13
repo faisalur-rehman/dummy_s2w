@@ -10,6 +10,9 @@ import React, {useState, useEffect} from 'react';
 import {ScaledSheet} from 'react-native-size-matters';
 import PrimaryButton from '../../components/Buttons/PrimaryButton';
 import {NAVIGATION_ROUTES} from '../../navigations/navigationRoutes';
+import ArrowVector from '../../assets/images/SvgImages/ArrowVector';
+// import { Icons } from '../../assets/vectorIcons/VectorIcons';
+
 
 const GetStarted = ({navigation}) => {
   const gotoLogin = () => {
@@ -38,7 +41,9 @@ const GetStarted = ({navigation}) => {
             <PrimaryButton
               onPress={gotoLogin}
               title={'Get Started'}
+            
               style={styles.buttonWidth}
+              icon={<ArrowVector/>}
             />
           </View>
         </ImageBackground>

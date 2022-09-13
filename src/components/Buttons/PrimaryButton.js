@@ -4,7 +4,7 @@ import {ScaledSheet} from 'react-native-size-matters';
 import {ButtonVariants} from '../../utils/constants';
 import {colors} from '../../utils/theme';
 
-const PrimaryButton = ({title, onPress, variant = ButtonVariants.PRIMARY,style}) => {
+const PrimaryButton = ({title, onPress, variant = ButtonVariants.PRIMARY,style,icon=undefined}) => {
   return (
     <TouchableOpacity
       onPress={onPress}
@@ -24,6 +24,7 @@ const PrimaryButton = ({title, onPress, variant = ButtonVariants.PRIMARY,style})
         ]}>
         {title}
       </Text>
+      {icon && icon}
     </TouchableOpacity>
   );
 };
@@ -35,6 +36,9 @@ const styles = ScaledSheet.create({
     width: '40%',
     borderRadius: '12@s',
     height: '45@s',
+    flexDirection:'row',
+    justifyContent:"center",
+    alignItems:"center"
   },
   primaryStyles: {
     backgroundColor: colors.primaryButtonColor,
