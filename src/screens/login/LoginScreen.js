@@ -55,7 +55,7 @@ const LoginScreen = ({navigation}) => {
               />
               <TouchableOpacity
                 onPress={() =>
-                  navigation.navigate(NAVIGATION_ROUTES.RESET_PASSWORD)
+                  navigation.navigate(NAVIGATION_ROUTES.FORGET_PASSWORD)
                 }>
                 <Text style={styles.forgotPassword}>Forgot Password?</Text>
               </TouchableOpacity>
@@ -77,7 +77,6 @@ const styles = ScaledSheet.create({
     textAlign: 'right',
     color: colors.primaryButtonColor,
     marginTop: '5@s',
-    marginRight: '23@s',
   },
   buttonView: {alignItems: 'center', marginVertical: 100},
 });

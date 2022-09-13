@@ -4,16 +4,17 @@ import {ScaledSheet} from 'react-native-size-matters';
 import {ButtonVariants} from '../../utils/constants';
 import {colors} from '../../utils/theme';
 
-const PrimaryButton = ({title, onPress, variant = ButtonVariants.PRIMARY}) => {
+const PrimaryButton = ({title, onPress, variant = ButtonVariants.PRIMARY,style}) => {
   return (
     <TouchableOpacity
       onPress={onPress}
       style={[
         styles.buttonStyles,
+        {...style},
         variant == ButtonVariants.PRIMARY
           ? styles.primaryStyles
           : styles.outlineStyle,
-      ]}>
+         ]}>
       <Text
         style={[
           styles.textStyles,
