@@ -7,7 +7,7 @@ import HeaderRightEllipse from '../../assets/images/SvgImages/HeaderRightEllipse
 import ProfileImage from '../../assets/images/SvgImages/ProfileImage';
 import {colors} from '../../utils/theme';
 
-const Header = ({title}) => {
+const Header = ({title, description = '', leftIcon = true}) => {
   return (
     <View style={styles.container}>
       <View style={{position: 'absolute', top: 30, left: 0}}>
@@ -32,10 +32,15 @@ const Header = ({title}) => {
           marginHorizontal: '8%',
           position: 'absolute',
           // backgroundColor: 'red',
-          bottom: 10,
+          bottom: 20,
         }}>
-        <BackArrow />
-        <Text style={styles.titleStyle}>{title}</Text>
+        {leftIcon && <BackArrow />}
+        <View style={[description && {marginLeft: 10}]}>
+          <Text style={styles.titleStyle}>{title}</Text>
+          {description && (
+            <Text style={styles.descriptionStyle}>{description}</Text>
+          )}
+        </View>
         <ProfileImage />
       </View>
     </View>
@@ -53,6 +58,10 @@ const styles = ScaledSheet.create({
   titleStyle: {
     fontSize: '18@s',
     fontWeight: '700',
+    color: colors.labelBlackColor,
+  },
+  descriptionStyle: {
+    fontSize: '12@s',
     color: colors.labelBlackColor,
   },
 });

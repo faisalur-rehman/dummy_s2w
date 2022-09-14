@@ -1,7 +1,6 @@
 import React from 'react';
 import {Text, View} from 'react-native';
 import {ScaledSheet} from 'react-native-size-matters';
-import HeartRateIcon from '../../assets/images/SvgImages/HeartRateIcon';
 import ClassStats from '../../components/ClassStats/ClassStats';
 import {colors} from '../../utils/theme';
 
@@ -73,7 +72,8 @@ const styles = ScaledSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginHorizontal: '12@s',
-    marginVertical: '5@s',
+    marginTop: '5@s',
+    marginBottom: '10@s',
     alignItems: 'center',
   },
   titleStyle: {

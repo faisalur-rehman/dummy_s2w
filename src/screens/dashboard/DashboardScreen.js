@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {SafeAreaView, View} from 'react-native';
+import {ScrollView, View} from 'react-native';
 import {ScaledSheet} from 'react-native-size-matters';
 import DetailViewIcon from '../../assets/images/SvgImages/DetailViewIcon';
 import VitalStatsView from '../../views/VitalStats/VitalStatsView';
@@ -8,6 +8,7 @@ import VitalStatsView from '../../views/VitalStats/VitalStatsView';
 import ElevationIcon from '../../assets/images/SvgImages/ElevationIcon';
 import HomeIcon from '../../assets/images/SvgImages/HomeIcon';
 import ScanIcon from '../../assets/images/SvgImages/ScanIcon';
+import Header from '../../components/Header/Header';
 import ScanButton from '../../components/ScanButton/ScanButton';
 import {colors} from '../../utils/theme';
 import BarGraphView from '../../views/BarGraphView/BarGraphView';
@@ -15,25 +16,28 @@ import ClassStatsView from '../../views/ClassStats/ClassStatsView';
 
 const DashboardScreen = ({navigation}) => {
   return (
-    <SafeAreaView>
-      <View style={styles.vitalContaner}>
-        <View style={styles.iconView}>
-          <HomeIcon />
-        </View>
-
-        <ScanButton
-          valuerange="79.9%"
-          lastscan="Last seen,1hr 23m ago"
-          icon={<ElevationIcon />}
-          scanIcon={<ScanIcon />}
-        />
-
-        <VitalStatsView
-          title="Vital Stats"
-          icon={<DetailViewIcon />}
-          navigation={navigation}
-        />
+    <ScrollView>
+      <Header
+        title={'Hello Ryan'}
+        leftIcon={false}
+        description="Let`s improve your health with us"
+      />
+      <View style={styles.iconView}>
+        <HomeIcon />
       </View>
+
+      <ScanButton
+        valuerange="79.9%"
+        lastscan="Last seen,1hr 23m ago"
+        icon={<ElevationIcon />}
+        scanIcon={<ScanIcon />}
+      />
+
+      <VitalStatsView
+        title="Vital Stats"
+        icon={<DetailViewIcon />}
+        navigation={navigation}
+      />
       <BarGraphView
         title={'Risk Score'}
         description={'Over the last 7 days, your risk score trending downwards'}
@@ -44,7 +48,7 @@ const DashboardScreen = ({navigation}) => {
         tutortxt="Tutor:"
         tutorStatus="Tested Clear"
       />
-    </SafeAreaView>
+    </ScrollView>
   );
 };
 
