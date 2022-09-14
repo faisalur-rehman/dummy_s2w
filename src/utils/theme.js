@@ -9,6 +9,8 @@ export const colors = {
   amberRiskColor: '#FFA869',
   lowRiskColor: '#7FE55C',
   headerBackgroundColor: '#F8FBFE',
+  normaltestColor: '#69BF4B',
+  boxborderColor: '#428BC1',
 };
 
 export const fonts = {

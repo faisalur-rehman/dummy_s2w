@@ -3,8 +3,14 @@ import {Text, TouchableOpacity, View} from 'react-native';
 import {ScaledSheet} from 'react-native-size-matters';
 import HeartRateIcon from '../../assets/images/SvgImages/HeartRateIcon';
 import VitalStatComponent from '../../components/VitalStatsComponent/VitalStatComponent';
+import OxygenSaturation from '../../assets/images/SvgImages/OxygenSaturationIcon';
+import HrvIcon from '../../assets/images/SvgImages/HrvIcon';
+import TempratureIcon from '../../assets/images/SvgImages/TempratureIcon';
+import OxygenSaturationIcon from '../../assets/images/SvgImages/OxygenSaturationIcon';
+import StressLevelIcon from '../../assets/images/SvgImages/StressLevelIcon';
+import RespiratoryIcon from '../../assets/images/SvgImages/RespiratoryIcon';
+import {colors} from '../../utils/theme';
 import {NAVIGATION_ROUTES} from '../../navigations/navigationRoutes';
-
 const VitalStatsView = ({title = '', icon = undefined, navigation}) => {
   return (
     <>
@@ -21,32 +27,38 @@ const VitalStatsView = ({title = '', icon = undefined, navigation}) => {
       </View>
       <View style={styles.vitalContainer}>
         <VitalStatComponent
+          style={{borderColor: colors.highRiskColor}}
           icon={<HeartRateIcon />}
           readingTitle="Heart Rate"
           value="67bpm"
         />
         <VitalStatComponent
-          icon={<HeartRateIcon />}
+          style={{borderColor: colors.boxborderColor}}
+          icon={<OxygenSaturationIcon />}
           readingTitle="Oxygen Saturation"
           value="76%"
         />
         <VitalStatComponent
-          icon={<HeartRateIcon />}
+          style={{borderColor: colors.primaryButtonColor}}
+          icon={<HrvIcon />}
           readingTitle="HRV"
           value="16ms"
         />
         <VitalStatComponent
-          icon={<HeartRateIcon />}
+          style={{borderColor: colors.primaryButtonColor}}
+          icon={<TempratureIcon />}
           readingTitle="Tempreture"
           value="101F"
         />
         <VitalStatComponent
-          icon={<HeartRateIcon />}
+          style={{borderColor: colors.boxborderColor}}
+          icon={<StressLevelIcon />}
           readingTitle="Stress Level"
           value="60%"
         />
         <VitalStatComponent
-          icon={<HeartRateIcon />}
+          style={{borderColor: colors.highRiskColor}}
+          icon={<RespiratoryIcon />}
           readingTitle="Respiratory Level"
           value="60brpm"
         />
@@ -64,6 +76,7 @@ const styles = ScaledSheet.create({
     alignItems: 'center',
     margin: '5@s',
     flexWrap: 'wrap',
+    // backgroundColor:"green"
   },
   headerStyle: {
     flexDirection: 'row',
@@ -71,9 +84,11 @@ const styles = ScaledSheet.create({
     marginHorizontal: '10@s',
     marginVertical: '5@s',
     alignItems: 'center',
+    // backgroundColor:"yellow"
   },
   titleStyle: {
-    fontSize: '16@s',
+    fontSize: '20@s',
     fontWeight: '700',
+    color: '#424242',
   },
 });

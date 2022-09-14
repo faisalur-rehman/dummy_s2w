@@ -12,20 +12,96 @@ import Splash from '../screens/splash/Splash';
 import VitalHistoryScreen from '../screens/VitalHistory/VitalHistoryScreen';
 import {NAVIGATION_ROUTES} from './navigationRoutes';
 
+import TabHomeIcon from '../assets/images/SvgImages/TabHomeIcon';
+import HomeFocusedIcon from '../assets/images/SvgImages/HomefocusedIcon';
+import Prescription from '../screens/prescription/Prescription';
+import PrescriptionIcon from '../assets/images/SvgImages/PrescriptionIcon';
+import PrescribedFocusedIcon from '../assets/images/SvgImages/PrescribedFocusedIcon';
+import Notification from '../screens/notification/Notification';
+import NotificationIcon from '../assets/images/SvgImages/NotifyIcon';
+import NotifyFocusedIcon from '../assets/images/SvgImages/NotifyFocusedIcon';
+import Profile from '../screens/profile/Profile';
+import ProfileIcon from '../assets/images/SvgImages/ProfileIcon';
+import ProfileFocusedIcon from '../assets/images/SvgImages/ProfileFocusedIcon';
+import {colors} from '../utils/theme';
 const AuthStack = createNativeStackNavigator();
 const HomeStack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
 function Tabs() {
   return (
-    <Tab.Navigator initialRouteName={NAVIGATION_ROUTES.HOME}>
+    <Tab.Navigator
+      screenOptions={{
+        tabBarStyle: {
+          height: 84,
+          alignItems: 'center',
+          justifyContent: 'center',
+        },
+        tabBarItemStyle: {
+          margin: 5,
+          borderRadius: 30,
+          alignItems: 'center',
+          justifyContent: 'center',
+        },
+      }}>
       <Tab.Screen
-        name={NAVIGATION_ROUTES.HOME}
+        name="Home"
         component={Home}
-        options={{headerShown: false}}
+        options={{
+          tabBarActiveBackgroundColor: colors.primaryButtonColor,
+
+          headerShown: false,
+          tabBarLabel: '',
+          tabBarIcon: ({size, color, focused}) =>
+            focused ? <HomeFocusedIcon /> : <TabHomeIcon name="Home" />,
+        }}
       />
-      {/* <Tab.Screen name="Messages" component={Messages} /> */}
+      <Tab.Screen
+        name="Prescription"
+        component={Prescription}
+        options={{
+          tabBarActiveBackgroundColor: colors.primaryButtonColor,
+          headerShown: false,
+          tabBarLabel: '',
+          tabBarBadge: 2,
+          tabBarIcon: ({size, color, focused}) =>
+            focused ? <PrescribedFocusedIcon /> : <PrescriptionIcon />,
+        }}
+      />
+      <Tab.Screen
+        name="Notification"
+        component={Notification}
+        options={{
+          tabBarActiveBackgroundColor: colors.primaryButtonColor,
+          headerShown: false,
+          tabBarLabel: '',
+          tabBarBadge: 3,
+          tabBarIcon: ({focused, size, color}) =>
+            focused ? (
+              <NotifyFocusedIcon />
+            ) : (
+              <NotificationIcon name="Notify" />
+            ),
+        }}
+      />
+      <Tab.Screen
+        name="Profile"
+        component={Profile}
+        options={{
+          tabBarActiveBackgroundColor: colors.primaryButtonColor,
+          headerShown: false,
+          tabBarLabel: '',
+
+          tabBarIcon: ({size, color, focused}) =>
+            focused ? <ProfileFocusedIcon /> : <ProfileIcon name="Profile" />,
+        }}
+      />
     </Tab.Navigator>
+
+    // <Tab.Navigator initialRouteName={NAVIGATION_ROUTES.HOME}>
+    //   <Tab.Screen name={NAVIGATION_ROUTES.HOME} component={DashboardScreen} />
+    //   {/* <Tab.Screen name="Messages" component={Messages} /> */}
+    // </Tab.Navigator>
   );
 }
 
