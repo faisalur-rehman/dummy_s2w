@@ -1,46 +1,27 @@
 import React from 'react';
-import {Text, View} from 'react-native';
+import {SafeAreaView, View} from 'react-native';
 import {ScaledSheet} from 'react-native-size-matters';
 import DetailViewIcon from '../../assets/images/SvgImages/DetailViewIcon';
-import VitalStatComponent from '../../components/VitalStatsComponent/VitalStatComponent';
 import VitalStatsView from '../../views/VitalStats/VitalStatsView';
-import {VictoryBar} from 'victory-native';
+// import {VictoryBar, VictoryChart} from 'victory-native';
+import {colors} from '../../utils/theme';
+import BarGraphView from '../../views/BarGraphView/BarGraphView';
 
-const DashboardScreen = () => {
-  const data = [
-    {quarter: 1, earnings: 13000},
-    {quarter: 2, earnings: 16500},
-    {quarter: 3, earnings: 14250},
-    {quarter: 4, earnings: 19000},
-    {quarter: 5, earnings: 19000},
-    {quarter: 6, earnings: 19000},
-    {quarter: 7, earnings: 19000},
-  ];
+const DashboardScreen = ({navigation}) => {
   return (
-    <>
+    <SafeAreaView>
       <View style={styles.vitalContaner}>
-        <VitalStatsView title="Vital Stats" icon={<DetailViewIcon />} />
+        <VitalStatsView
+          title="Vital Stats"
+          icon={<DetailViewIcon />}
+          navigation={navigation}
+        />
       </View>
-      <VictoryBar
-        width={300}
-        alignment="middle"
-        cornerRadius={5}
-        data={data}
-        x="quarter"
-        y="earnings"
-        style={{
-          data: {
-            fill: ({datum}) => {
-              console.log('datum', datum);
-              if (datum.quarter == 3 || datum.quarter == 2) {
-                return '#c43a31';
-              }
-              return '';
-            },
-          },
-        }}
+      <BarGraphView
+        title={'Risk Score'}
+        description={'Over the last 7 days, your risk score trending downwards'}
       />
-    </>
+    </SafeAreaView>
   );
 };
 
@@ -53,5 +34,23 @@ const styles = ScaledSheet.create({
     alignItems: 'center',
     margin: '5@s',
     flexWrap: 'wrap',
+  },
+  graphContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
+    alignItems: 'center',
+    position: 'relative',
+    padding: 0,
+  },
+  graphLine: {
+    position: 'absolute',
+    top: '55%',
+    borderWidth: 1,
+    borderColor: colors.blueBorderColor,
+    width: '85%',
+  },
+  textStyle: {
+    marginBottom: '5@s',
+    color: colors.labelBlackColor,
   },
 });

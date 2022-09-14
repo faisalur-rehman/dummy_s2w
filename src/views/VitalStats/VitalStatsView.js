@@ -1,15 +1,23 @@
 import React from 'react';
-import {Text, View} from 'react-native';
+import {Text, TouchableOpacity, View} from 'react-native';
 import {ScaledSheet} from 'react-native-size-matters';
 import HeartRateIcon from '../../assets/images/SvgImages/HeartRateIcon';
 import VitalStatComponent from '../../components/VitalStatsComponent/VitalStatComponent';
+import {NAVIGATION_ROUTES} from '../../navigations/navigationRoutes';
 
-const VitalStatsView = ({title = '', icon = undefined}) => {
+const VitalStatsView = ({title = '', icon = undefined, navigation}) => {
   return (
     <>
       <View style={styles.headerStyle}>
         <Text style={styles.titleStyle}>{title}</Text>
-        {icon && icon}
+        {icon && (
+          <TouchableOpacity
+            onPress={() =>
+              navigation.navigate(NAVIGATION_ROUTES.VITAL_HISTORY)
+            }>
+            {icon}
+          </TouchableOpacity>
+        )}
       </View>
       <View style={styles.vitalContainer}>
         <VitalStatComponent

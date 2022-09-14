@@ -1,5 +1,7 @@
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
+import {Image, Text, View} from 'react-native';
+import {ScaledSheet} from 'react-native-size-matters';
+import faceScanImg from '../../assets/images/face1.png';
 import AuthenticationWrapper from '../../components/AuthenticationWrapper/AuthenticationWrapper';
 import PrimaryButton from '../../components/Buttons/PrimaryButton';
 import Dropdown from '../../components/Dropdown/Dropdown';
@@ -14,6 +16,10 @@ const EnterClassScreen = ({navigation}) => {
       <View style={{zIndex: 9}}>
         <Dropdown zIndex={1000} label="Section" />
       </View>
+      <View style={styles.scanFaceView}>
+        <Image source={faceScanImg} style={styles.imageStyle} />
+        <Text style={styles.scanTextStyle}>Scan Face</Text>
+      </View>
       <View style={styles.buttonView}>
         <PrimaryButton
           title={'GO'}
@@ -26,6 +32,19 @@ const EnterClassScreen = ({navigation}) => {
 
 export default EnterClassScreen;
 
-const styles = StyleSheet.create({
-  buttonView: {alignItems: 'center', marginVertical: 100},
+const styles = ScaledSheet.create({
+  buttonView: {alignItems: 'center', marginVertical: '20@s'},
+  imageStyle: {
+    height: '80@s',
+    width: '80@s',
+  },
+  scanTextStyle: {
+    fontSize: '20@s',
+    marginVertical: '5@s',
+  },
+  scanFaceView: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: '15@s',
+  },
 });

@@ -9,8 +9,8 @@ const Dropdown = props => {
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState(null);
   const [items, setItems] = useState([
-    {label: 'Apple', value: 'apple'},
-    {label: 'Banana', value: 'banana'},
+    {label: 'Class 1', value: 'Class1'},
+    {label: 'Class 2', value: 'Class2'},
   ]);
 
   return (

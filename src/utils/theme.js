@@ -6,6 +6,9 @@ export const colors = {
   placeholderColor: '#BDBDBD',
   highRiskColor: '#D35755',
   blueBorderColor: '#428BC1',
+  amberRiskColor: '#FFA869',
+  lowRiskColor: '#7FE55C',
+  headerBackgroundColor: '#F8FBFE',
 };
 
 export const fonts = {
