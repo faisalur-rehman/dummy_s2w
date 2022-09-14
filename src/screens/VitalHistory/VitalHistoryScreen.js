@@ -6,10 +6,10 @@ import {colors} from '../../utils/theme';
 import BarGraphView from '../../views/BarGraphView/BarGraphView';
 import VitalHistoryView from '../../views/VitalHistory/VitalHistoryView';
 
-const VitalHistoryScreen = () => {
+const VitalHistoryScreen = ({navigation}) => {
   return (
     <View style={styles.container}>
-      <Header title="Vital History" />
+      <Header title="Vital History" navigation={navigation} />
       <BarGraphView title={'Risk Score'} />
       <VitalHistoryView title={'History'} />
     </View>

@@ -1,13 +1,21 @@
 import React from 'react';
-import {Text, View} from 'react-native';
+import {Text, TouchableOpacity, View} from 'react-native';
 import {ScaledSheet} from 'react-native-size-matters';
 import BackArrow from '../../assets/images/SvgImages/BackArrow';
 import HeaderLeftEllipse from '../../assets/images/SvgImages/HeaderLeftEllipse';
 import HeaderRightEllipse from '../../assets/images/SvgImages/HeaderRightEllipse';
 import ProfileImage from '../../assets/images/SvgImages/ProfileImage';
-import {colors} from '../../utils/theme';
+import {NAVIGATION_ROUTES} from '../../navigations/navigationRoutes';
+import {colors, fonts} from '../../utils/theme';
 
-const Header = ({title, description = '', leftIcon = true}) => {
+const Header = ({
+  title,
+  description = '',
+  leftIcon = true,
+  hideIcon = false,
+  textViewStyle = {},
+  navigation,
+}) => {
   return (
     <View style={styles.container}>
       <View style={{position: 'absolute', top: 30, left: 0}}>
@@ -18,10 +26,8 @@ const Header = ({title, description = '', leftIcon = true}) => {
           position: 'absolute',
           top: 0,
           right: 0,
-          // backgroundColor: 'red',
         }}>
         <HeaderRightEllipse />
-        {/* <Image source={right_ellipse} style={{width: 135, height: 122}} /> */}
       </View>
       <View
         style={{
@@ -31,11 +37,22 @@ const Header = ({title, description = '', leftIcon = true}) => {
           justifyContent: 'space-between',
           marginHorizontal: '8%',
           position: 'absolute',
-          // backgroundColor: 'red',
           bottom: 20,
         }}>
-        {leftIcon && <BackArrow />}
-        <View style={[description && {marginLeft: 10}]}>
+        {leftIcon ? (
+          <TouchableOpacity onPress={() => navigation.goBack()}>
+            <BackArrow />
+          </TouchableOpacity>
+        ) : hideIcon ? (
+          <View />
+        ) : null}
+        <View
+          style={[
+            description && {
+              marginLeft: 10,
+              ...textViewStyle,
+            },
+          ]}>
           <Text style={styles.titleStyle}>{title}</Text>
           {description && (
             <Text style={styles.descriptionStyle}>{description}</Text>
@@ -57,11 +74,12 @@ const styles = ScaledSheet.create({
   },
   titleStyle: {
     fontSize: '18@s',
-    fontWeight: '700',
+    fontFamily: fonts.nunito_bold,
     color: colors.labelBlackColor,
   },
   descriptionStyle: {
-    fontSize: '12@s',
+    fontSize: '14@s',
+    fontFamily: fonts.nunito_regular,
     color: colors.labelBlackColor,
   },
 });

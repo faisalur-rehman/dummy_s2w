@@ -29,7 +29,7 @@ const LoginScreen = ({navigation}) => {
     <AuthenticationWrapper title="Login">
       <SafeAreaView>
         <Formik
-          initialValues={{email: '', password: ''}}
+          initialValues={{email: 'a@gmail.com', password: '1'}}
           validationSchema={loginValidationSchema}
           onSubmit={handleLogin}>
           {({handleChange, handleBlur, handleSubmit, values, errors}) => (
