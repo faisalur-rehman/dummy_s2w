@@ -23,7 +23,7 @@ const EnterClassScreen = ({navigation}) => {
       <View style={styles.buttonView}>
         <PrimaryButton
           title={'GO'}
-          onPress={() => navigation.navigate(NAVIGATION_ROUTES.TABS)}
+          onPress={() => navigation.navigate(NAVIGATION_ROUTES.HOME_STACK)}
         />
       </View>
     </AuthenticationWrapper>

@@ -53,7 +53,7 @@ function Tabs() {
         }}
       />
       <Tab.Screen
-        name="Prescription"
+        name={NAVIGATION_ROUTES.PRESCRIPTION}
         component={Prescription}
         options={{
           headerShown: false,
@@ -69,7 +69,7 @@ function Tabs() {
         }}
       />
       <Tab.Screen
-        name="Notification"
+        name={NAVIGATION_ROUTES.NOTIFICATION}
         component={Notification}
         options={{
           headerShown: false,
@@ -80,12 +80,12 @@ function Tabs() {
                 <NotifyFocusedIcon />
               </View>
             ) : (
-              <NotificationIcon name="Notify" />
+              <NotificationIcon />
             ),
         }}
       />
       <Tab.Screen
-        name="Profile"
+        name={NAVIGATION_ROUTES.PROFILE}
         component={Profile}
         options={{
           headerShown: false,
@@ -95,7 +95,7 @@ function Tabs() {
                 <ProfileFocusedIcon />
               </View>
             ) : (
-              <ProfileIcon name="Profile" />
+              <ProfileIcon />
             ),
         }}
       />
@@ -105,9 +105,9 @@ function Tabs() {
 
 function Home() {
   return (
-    <HomeStack.Navigator initialRouteName={NAVIGATION_ROUTES.HOME}>
+    <HomeStack.Navigator initialRouteName={NAVIGATION_ROUTES.TABS}>
       <HomeStack.Screen
-        name={NAVIGATION_ROUTES.HOME}
+        name={NAVIGATION_ROUTES.TABS}
         component={Tabs}
         options={{headerShown: false}}
       />
@@ -154,7 +154,7 @@ function Authentication() {
         options={{headerShown: false}}
       />
       <AuthStack.Screen
-        name={NAVIGATION_ROUTES.TABS}
+        name={NAVIGATION_ROUTES.HOME_STACK}
         component={Home}
         options={{headerShown: false}}
       />

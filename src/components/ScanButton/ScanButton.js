@@ -1,5 +1,5 @@
 import React from 'react';
-import {TouchableOpacity, View, Text} from 'react-native';
+import {TouchableOpacity, View, Text,Platform} from 'react-native';
 import {ScaledSheet} from 'react-native-size-matters';
 import {colors} from '../../utils/theme';
 
@@ -27,7 +27,7 @@ const ScanButton = ({
 );
 const styles = ScaledSheet.create({
   container: {
-    elevation: 10,
+    // elevation: 10,
     backgroundColor: '#FFFFFF',
     marginVertical: '5@s',
     height: '70@s',
@@ -38,6 +38,22 @@ const styles = ScaledSheet.create({
     justifyContent: 'space-between',
     marginHorizontal: '15@s',
     alignItems: 'center',
+
+    ...Platform.select({
+      ios:{
+        shadowColor:'#000',
+        shadowOffset:{
+          width:1,height:3
+        },
+        shadowOpacity:0.2
+      },
+      android:{
+        elevation:15
+      }
+
+    }),
+    
+    
   },
   textpercentage: {marginHorizontal: '10@s'},
   iconview: {},
