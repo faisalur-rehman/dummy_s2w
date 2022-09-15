@@ -1,6 +1,7 @@
 import React from 'react';
 import {Modal, StyleSheet, View} from 'react-native';
 import NotifyFocusedIcon from '../../assets/images/SvgImages/NotifyFocusedIcon';
+import {colors} from '../../utils/theme';
 import InfoModalComponent from './InfoModalComponent';
 
 const NotificationModal = ({modalVisible, handleModalClose}) => {
@@ -12,7 +13,7 @@ const NotificationModal = ({modalVisible, handleModalClose}) => {
             <InfoModalComponent
               time={'08:00 AM'}
               title="Notification Selected"
-              icon={<NotifyFocusedIcon />}
+              icon={<NotifyFocusedIcon fill={colors.primaryButtonColor} />}
               onPress={handleModalClose}
             />
           </View>
