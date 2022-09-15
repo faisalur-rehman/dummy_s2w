@@ -1,11 +1,18 @@
 import React from 'react';
-import {Text, View} from 'react-native';
+import {Text, TouchableOpacity, View} from 'react-native';
 import {ScaledSheet} from 'react-native-size-matters';
 import {colors, fonts} from '../../utils/theme';
 
-const NotificationView = ({icon, title, description, callDuration, time}) => {
+const NotificationView = ({
+  icon,
+  title,
+  description,
+  callDuration,
+  time,
+  onPress,
+}) => {
   return (
-    <View style={styles.container}>
+    <TouchableOpacity onPress={onPress} style={styles.container}>
       <View style={styles.iconView}>{icon}</View>
       <View style={styles.notifcationDescriptionView}>
         <Text style={styles.titleStyle}>{title}</Text>
@@ -15,7 +22,7 @@ const NotificationView = ({icon, title, description, callDuration, time}) => {
         </View>
         <Text style={styles.timeStyle}>{time}</Text>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 
