@@ -1,64 +1,60 @@
-import {View, Text, ScrollView, Modal, TouchableOpacity} from 'react-native';
-import React, {useState, useEffect} from 'react';
+import {View, FlatList} from 'react-native';
+import React, {useState,} from 'react';
 import ProfileHeader from '../../components/ProfileHeader/ProfileHeader';
 import ProfileReports from '../../components/ProfileReports/ProfileReports';
-// import Reports from '../../views/ReportView/Reports'
 import ReportsComponent from '../../components/Reports/ReportsComponent';
 import {ScaledSheet} from 'react-native-size-matters';
-// import PopUp from '../../components/PopUp/PopUp';
+import ProfileModal from '../../components/Modals/ProfileModal';
+import UploadModal from '../../components/Modals/UploadModal';
 
 const Profile = () => {
-  const [infoModal, setInfoModal] = useState(false);
-  const [uploadoMdal, setUploadModal] = useState(false);
-  const [reportModal, setReportModal] = useState(false);
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [uploadModal, setUploadModal] = useState(false);
+  const handleModalVisibility = () => {
+    setIsModalVisible(prev => !prev);
+  };
+  const handleUploadModal = () => {
+    setUploadModal(prev => !prev);
+  };
+
 
   return (
-    <View>
+    <View style={{flex:1,backgroundColor:"white"}}>
       <ProfileHeader
         title={'Rayan,Azhari'}
         description="userprofile@gmail.com"
+        onPress={handleModalVisibility}
       />
-      <ScrollView>
-        <ProfileReports />
-        {/* <PopUp visible={uploadoMdal}>
-          <TouchableOpacity
-            onPress={() => setUploadModal(false)}
-            style={{
-              alignSelf: 'flex-end',
-              marginVertical: 10,
-              marginHorizontal: 10,
-            }}>
-            <Text>Cancel upload</Text>
-          </TouchableOpacity>
-        </PopUp> */}
-        <ReportsComponent pending={true} style={styles.pending} />
-        <ReportsComponent />
-        {/* <PopUp 
-          style={styles.report}
-        visible={reportModal}>
-          <TouchableOpacity
-            onPress={() => setReportModal(false)}
-            style={{
-              alignSelf: 'flex-end',
-              marginVertical: 10,
-              marginHorizontal: 10,
-            }}>
-            <Text>Cancel report</Text>
-          </TouchableOpacity>
-        </PopUp> */}
-        {/* <PopUp visible={infoModal}>
-          <TouchableOpacity
-            onPress={() => setInfoModal(false)}
-            style={{
-              alignSelf: 'flex-end',
-              marginVertical: 10,
-              marginHorizontal: 10,
-            }}>
-            <Text>Cancel</Text>
-          </TouchableOpacity>
-        </PopUp> */}
-        <ReportsComponent />
-      </ScrollView>
+      <ProfileModal
+        modalVisible={isModalVisible}
+        handleModalClose={handleModalVisibility}
+      />
+    
+        <ProfileReports onPress={handleUploadModal} />
+        <UploadModal
+          modalVisible={uploadModal}
+          handleModalClose={handleUploadModal}
+        />
+         <ReportsComponent pending={true} style={styles.pending} />
+         <FlatList
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={styles.flatlistStyles}
+        data={[1, 2]}
+        keyExtractor={item => item}
+        renderItem={() => (
+          <ReportsComponent 
+        
+        />
+         
+        )}
+      />
+      
+       
+        
+      
+      
+      
+      
     </View>
   );
 };

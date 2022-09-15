@@ -5,8 +5,12 @@ import CheckBox from '../../assets/images/SvgImages/CheckBox';
 import PdfFileImage from '../../assets/images/SvgImages/PdfFileIcon';
 import MenuDots from '../../assets/images/SvgImages/MenuDots';
 import {colors} from '../../utils/theme';
-// import PopUp from '../PopUp/PopUp';
-// import { Modal } from 'react-native';
+import {
+ 
+  MenuTrigger,
+} from 'react-native-popup-menu';
+// import { PopUpMenu } from '../Modals/PopUpmenu';
+
 
 const ReportsComponent = ({pending = false, style, onPress}) => {
   return (
@@ -41,7 +45,10 @@ const ReportsComponent = ({pending = false, style, onPress}) => {
               <Text style={styles.timetxt}>8:30 PM</Text>
 
               <TouchableOpacity onPress={onPress} style={styles.dots}>
+               
                 <MenuDots />
+                
+               
               </TouchableOpacity>
             </View>
           </>
