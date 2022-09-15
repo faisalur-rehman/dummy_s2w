@@ -43,7 +43,8 @@ const GetStarted = ({navigation}) => {
               title={'Get Started'}
             
               style={styles.buttonWidth}
-              icon={<ArrowVector/>}
+              arrowvector={true}
+              // icon={<ArrowVector/>}
             />
           </View>
         </ImageBackground>

@@ -24,6 +24,7 @@ import TabHomeIcon from '../assets/images/SvgImages/TabHomeIcon';
 import Notification from '../screens/notification/Notification';
 import Prescription from '../screens/prescription/Prescription';
 import Profile from '../screens/profile/Profile';
+import PopUp from '../components/PopUp/PopUp';
 import {colors} from '../utils/theme';
 const AuthStack = createNativeStackNavigator();
 const HomeStack = createNativeStackNavigator();
@@ -36,8 +37,8 @@ function Tabs() {
         tabBarShowLabel: false,
       }}>
       <Tab.Screen
-        name="Home"
-        component={Home}
+        name={NAVIGATION_ROUTES.HOME}
+        component={DashboardScreen}
         options={{
           // tabBarActiveBackgroundColor: colors.primaryButtonColor,
           headerShown: false,
@@ -58,7 +59,7 @@ function Tabs() {
         }}
       />
       <Tab.Screen
-        name="Prescription"
+        name={NAVIGATION_ROUTES.PRESCRIPTION}
         component={Prescription}
         options={{
           // tabBarActiveBackgroundColor: colors.primaryButtonColor,
@@ -81,7 +82,7 @@ function Tabs() {
         }}
       />
       <Tab.Screen
-        name="Notification"
+        name={NAVIGATION_ROUTES.NOTIFICATION}
         component={Notification}
         options={{
           // tabBarActiveBackgroundColor: colors.primaryButtonColor,
@@ -99,12 +100,12 @@ function Tabs() {
                 <NotifyFocusedIcon />
               </View>
             ) : (
-              <NotificationIcon name="Notify" />
+              <NotificationIcon/>
             ),
         }}
       />
       <Tab.Screen
-        name="Profile"
+        name={NAVIGATION_ROUTES.PROFILE}
         component={Profile}
         options={{
           // tabBarActiveBackgroundColor: colors.primaryButtonColor,
@@ -121,7 +122,7 @@ function Tabs() {
                 <ProfileFocusedIcon />
               </View>
             ) : (
-              <ProfileIcon name="Profile" />
+              <ProfileIcon />
             ),
         }}
       />
@@ -196,7 +197,7 @@ function Authentication() {
 export const Routes = () => {
   return (
     <NavigationContainer>
-      <Authentication />
+      <Tabs/>
     </NavigationContainer>
   );
 };

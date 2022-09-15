@@ -1,10 +1,11 @@
 import React from 'react';
-import {StyleSheet, Text, TouchableOpacity} from 'react-native';
+import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {ScaledSheet} from 'react-native-size-matters';
 import {ButtonVariants} from '../../utils/constants';
 import {colors} from '../../utils/theme';
+import ArrowVector from '../../assets/images/SvgImages/ArrowVector';
 
-const PrimaryButton = ({title, onPress, variant = ButtonVariants.PRIMARY,style,icon=undefined}) => {
+const PrimaryButton = ({title, onPress, variant = ButtonVariants.PRIMARY,style,icon=undefined,arrowvector=false}) => {
   return (
     <TouchableOpacity
       onPress={onPress}
@@ -22,9 +23,18 @@ const PrimaryButton = ({title, onPress, variant = ButtonVariants.PRIMARY,style,i
             ? styles.primaryText
             : styles.outlineText,
         ]}>
-        {title}
+        {title} 
       </Text>
-      {icon && icon}
+      {arrowvector ?
+       <View 
+       style={styles.arrowIcon}>
+         <ArrowVector/>
+ 
+       </View>
+      
+      :<></>}
+     
+      {/* {icon && icon} */}
     </TouchableOpacity>
   );
 };
@@ -59,4 +69,11 @@ const styles = ScaledSheet.create({
   outlineText: {
     color: colors.primaryButtonColor,
   },
+  arrowIcon:{
+    alignSelf:"center",
+    justifyContent:"center",
+    alignItems:"center",
+    marginTop:"5@s",
+    left:"2@s"}
+
 });
