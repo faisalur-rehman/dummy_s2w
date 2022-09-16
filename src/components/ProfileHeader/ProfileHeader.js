@@ -8,7 +8,7 @@ import LogOutImage from '../../assets/images/SvgImages/LogOutImage';
 import {colors} from '../../utils/theme';
 import InfoImage from '../../assets/images/SvgImages/InfoImage';
 
-const ProfileHeader = ({title, description = '', leftIcon = true,onPress}) => {
+const ProfileHeader = ({title, description = '', leftIcon = true,onPress,handlePress,profileicon}) => {
   return (
     <View style={styles.container}>
       <View style={{position: 'absolute', bottom: 0, left: 0}}>
@@ -34,9 +34,20 @@ const ProfileHeader = ({title, description = '', leftIcon = true,onPress}) => {
           marginHorizontal: '8%',
           position: 'absolute',
           top: 40,
+         
         }}>
-        <View>
-          <ProfileHeaderIcon />
+        <View style={{borderColor:"grey",
+        borderWidth:1,
+        height:80,
+        width:80,
+        borderRadius:80/2,
+        justifyContent:"center",
+        alignItems:"center"}}>
+          <TouchableOpacity onPress={handlePress}>
+            {profileicon && profileicon}
+          {/* <ProfileHeaderIcon  /> */}
+          </TouchableOpacity>
+         
           <TouchableOpacity
           onPress={onPress}
             style={{position: 'absolute', right: 0, top: 55, left: 55}}>
