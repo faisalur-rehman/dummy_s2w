@@ -15,6 +15,7 @@ export const colors = {
   grayTextColor: '#868686',
   unfilledGraphColor: '#E7E1E1',
   testedClearColor: '#7FE55C',
+  shadowColor: 'rgba(0, 0, 0, 0.29)',
 };
 export const fonts = {
   nunito_bold: 'Nunito-Bold',

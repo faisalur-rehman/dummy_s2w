@@ -10,6 +10,7 @@ const VitalHistoryView = ({title}) => {
       <Text style={styles.title}>{title}</Text>
       <VitalHistory />
       <VitalHistory />
+      <VitalHistory />
     </View>
   );
 };
