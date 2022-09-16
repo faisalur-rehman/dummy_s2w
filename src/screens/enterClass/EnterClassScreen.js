@@ -6,6 +6,7 @@ import AuthenticationWrapper from '../../components/AuthenticationWrapper/Authen
 import PrimaryButton from '../../components/Buttons/PrimaryButton';
 import Dropdown from '../../components/Dropdown/Dropdown';
 import {NAVIGATION_ROUTES} from '../../navigations/navigationRoutes';
+import {colors, fonts} from '../../utils/theme';
 
 const EnterClassScreen = ({navigation}) => {
   return (
@@ -39,8 +40,10 @@ const styles = ScaledSheet.create({
     width: '80@s',
   },
   scanTextStyle: {
-    fontSize: '20@s',
+    fontSize: '22@s',
     marginVertical: '5@s',
+    fontFamily: fonts.nunito_semi_bold,
+    color: colors.labelBlackColor,
   },
   scanFaceView: {
     justifyContent: 'center',

@@ -29,14 +29,14 @@ export default BarGraphView;
 const styles = ScaledSheet.create({
   titleStyle: {
     color: colors.labelBlackColor,
-    fontSize: '17@s',
+    fontSize: '20@s',
+    fontFamily: fonts.nunito_bold,
     margin: '10@s',
-    marginLeft: '20@s',
-    fontWeight: '700',
   },
   descriptionStyle: {
     color: colors.labelBlackColor,
-    fontSize: '13@s',
+    fontFamily: fonts.nunito_regular,
+    fontSize: '14@s',
     marginLeft: '20@s',
   },
   graphContainer: {

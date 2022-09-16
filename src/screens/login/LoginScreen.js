@@ -9,7 +9,7 @@ import AuthenticationWrapper from '../../components/AuthenticationWrapper/Authen
 import PrimaryButton from '../../components/Buttons/PrimaryButton';
 import TextField from '../../components/TextFields/TextField';
 import {NAVIGATION_ROUTES} from '../../navigations/navigationRoutes';
-import {colors} from '../../utils/theme';
+import {colors, fonts} from '../../utils/theme';
 
 const LoginScreen = ({navigation}) => {
   const [showPassword, setShowPassword] = useState(false);
@@ -76,6 +76,8 @@ const styles = ScaledSheet.create({
   forgotPassword: {
     textAlign: 'right',
     color: colors.primaryButtonColor,
+    fontFamily: fonts.nunito_bold,
+    fontSize: '14@s',
     marginTop: '5@s',
   },
   buttonView: {alignItems: 'center', marginVertical: 100},

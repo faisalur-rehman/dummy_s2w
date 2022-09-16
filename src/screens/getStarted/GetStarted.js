@@ -11,8 +11,8 @@ import {ScaledSheet} from 'react-native-size-matters';
 import PrimaryButton from '../../components/Buttons/PrimaryButton';
 import {NAVIGATION_ROUTES} from '../../navigations/navigationRoutes';
 import ArrowVector from '../../assets/images/SvgImages/ArrowVector';
+import {colors, fonts} from '../../utils/theme';
 // import { Icons } from '../../assets/vectorIcons/VectorIcons';
-
 
 const GetStarted = ({navigation}) => {
   const gotoLogin = () => {
@@ -41,7 +41,6 @@ const GetStarted = ({navigation}) => {
             <PrimaryButton
               onPress={gotoLogin}
               title={'Get Started'}
-            
               style={styles.buttonWidth}
               arrowvector={true}
               // icon={<ArrowVector/>}
@@ -72,14 +71,16 @@ const styles = ScaledSheet.create({
   },
   heading: {
     fontSize: '32@s',
-    fontWeight: '700',
     marginHorizontal: '20@s',
+    fontFamily: fonts.nunito_bold,
+    color: colors.labelBlackColor,
   },
   subheading: {
     fontSize: '14@s',
     marginHorizontal: '20@s',
-    // lineHeight: '24@s',
     marginVertical: '10@s',
+    fontFamily: fonts.nunito_regular,
+    color: colors.labelBlackColor,
   },
   buttonView: {
     width: '100%',

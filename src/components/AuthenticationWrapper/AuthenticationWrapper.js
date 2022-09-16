@@ -1,7 +1,7 @@
 import React from 'react';
 import {Image, Platform, SafeAreaView, Text, View} from 'react-native';
 import {ScaledSheet} from 'react-native-size-matters';
-import {colors} from '../../utils/theme';
+import {colors, fonts} from '../../utils/theme';
 
 const AuthenticationWrapper = ({children, title = ''}) => {
   return (
@@ -27,8 +27,8 @@ const AuthenticationWrapper = ({children, title = ''}) => {
       </View>
       <SafeAreaView>
         <Text style={styles.title}>{title}</Text>
+        <View style={styles.inputView}>{children}</View>
       </SafeAreaView>
-      <View style={styles.inputView}>{children}</View>
     </View>
   );
 };
@@ -40,11 +40,11 @@ const styles = ScaledSheet.create({
     marginHorizontal: '25@s',
   },
   title: {
-    fontWeight: '700',
-    fontSize: '24@s',
+    fontFamily: fonts.nunito_bold,
+    color: colors.labelBlackColor,
+    fontSize: '22@s',
+    marginVertical: '25@s',
     marginTop: Platform.OS == 'ios' ? '130@s' : '150@s',
     textAlign: 'center',
-    marginVertical: '20@s',
-    color: colors.labelBlackColor,
   },
 });

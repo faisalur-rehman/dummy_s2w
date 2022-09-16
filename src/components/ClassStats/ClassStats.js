@@ -1,18 +1,13 @@
 import React from 'react';
 import {Text, View} from 'react-native';
 import {ScaledSheet} from 'react-native-size-matters';
-import PasswordEyeIcon from '../../assets/images/SvgImages/EyeIcon';
-import {colors} from '../../utils/theme';
+import {colors, fonts} from '../../utils/theme';
 
-const ClassStats = ({heading, value,style}) => {
+const ClassStats = ({heading, value, style}) => {
   return (
     <View style={styles.container}>
-    
-      <Text style={[styles.textStyle,
-          {...style}
-      ]}>{heading}</Text>
+      <Text style={[styles.textStyle, {...style}]}>{heading}</Text>
       <Text style={styles.readingStyle}>{value}</Text>
-      
     </View>
   );
 };
@@ -32,13 +27,13 @@ const styles = ScaledSheet.create({
   },
   textStyle: {
     fontSize: '11@s',
-    marginTop:'5@s',
-    
+    marginTop: '5@s',
+    fontFamily: fonts.nunito_semi_bold,
   },
   readingStyle: {
     fontSize: '18@s',
     marginVertical: '10@s',
-    fontWeight:'700'
+    fontFamily: fonts.nunito_bold,
+    color: colors.labelBlackColor,
   },
-  
 });

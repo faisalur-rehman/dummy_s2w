@@ -2,7 +2,7 @@ import React from 'react';
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {ScaledSheet} from 'react-native-size-matters';
 import {ButtonVariants} from '../../utils/constants';
-import {colors} from '../../utils/theme';
+import {colors, fonts} from '../../utils/theme';
 import ArrowVector from '../../assets/images/SvgImages/ArrowVector';
 
 const PrimaryButton = ({
@@ -68,6 +68,7 @@ const styles = ScaledSheet.create({
     textAlign: 'center',
     lineHeight: '41@s',
     alignSelf: 'center',
+    fontFamily: fonts.nunito_semi_bold,
   },
   primaryText: {
     color: colors.whiteColor,

@@ -2,7 +2,7 @@ import React from 'react';
 import {Text, View} from 'react-native';
 import {ScaledSheet} from 'react-native-size-matters';
 import ClassStats from '../../components/ClassStats/ClassStats';
-import {colors} from '../../utils/theme';
+import {colors, fonts} from '../../utils/theme';
 
 const ClassStatsView = ({
   title = '',
@@ -78,17 +78,17 @@ const styles = ScaledSheet.create({
   },
   titleStyle: {
     fontSize: '20@s',
-    fontWeight: '700',
-    color: '#424242',
+    color: colors.labelBlackColor,
+    fontFamily: fonts.nunito_bold,
   },
   studentCount: {
-    color: '#424242',
-    fontWeight: '600',
+    color: colors.labelBlackColor,
+    fontFamily: fonts.nunito_semi_bold,
     fontSize: '11@s',
   },
   tutorStatus: {
-    color: '#69BF4B',
-    fontWeight: '600',
+    color: colors.normaltestColor,
+    fontFamily: fonts.nunito_semi_bold,
     fontSize: '11@s',
   },
 });

@@ -9,7 +9,7 @@ import TempratureIcon from '../../assets/images/SvgImages/TempratureIcon';
 import OxygenSaturationIcon from '../../assets/images/SvgImages/OxygenSaturationIcon';
 import StressLevelIcon from '../../assets/images/SvgImages/StressLevelIcon';
 import RespiratoryIcon from '../../assets/images/SvgImages/RespiratoryIcon';
-import {colors} from '../../utils/theme';
+import {colors, fonts} from '../../utils/theme';
 import {NAVIGATION_ROUTES} from '../../navigations/navigationRoutes';
 const VitalStatsView = ({title = '', icon = undefined, navigation}) => {
   return (
@@ -76,7 +76,6 @@ const styles = ScaledSheet.create({
     alignItems: 'center',
     margin: '5@s',
     flexWrap: 'wrap',
-    // backgroundColor:"green"
   },
   headerStyle: {
     flexDirection: 'row',
@@ -84,11 +83,11 @@ const styles = ScaledSheet.create({
     marginHorizontal: '10@s',
     marginVertical: '5@s',
     alignItems: 'center',
-    // backgroundColor:"yellow"
   },
   titleStyle: {
     fontSize: '20@s',
     fontWeight: '700',
-    color: '#424242',
+    color: colors.labelBlackColor,
+    fontFamily: fonts.nunito_bold,
   },
 });
