@@ -13,8 +13,9 @@ export const colors = {
   boxborderColor: '#428BC1',
   lightNotifcationColor: '#F8FBFE',
   grayTextColor: '#868686',
+  unfilledGraphColor: '#E7E1E1',
+  testedClearColor: '#7FE55C',
 };
-
 export const fonts = {
   nunito_bold: 'Nunito-Bold',
   nunito_semi_bold: 'Nunito-SemiBold',

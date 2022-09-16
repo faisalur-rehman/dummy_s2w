@@ -1,12 +1,13 @@
 import React from 'react';
-import {Modal, StyleSheet, View} from 'react-native';
+import {Modal, Platform, StyleSheet, View} from 'react-native';
 import NotifyFocusedIcon from '../../assets/images/SvgImages/NotifyFocusedIcon';
 import {colors} from '../../utils/theme';
 import InfoModalComponent from './InfoModalComponent';
 
 const NotificationModal = ({modalVisible, handleModalClose}) => {
   return (
-    <View style={[modalVisible && styles.blurBackground]}>
+    <View
+      style={[modalVisible && Platform.OS == 'ios' && styles.blurBackground]}>
       <Modal animationType="none" transparent={true} visible={modalVisible}>
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
@@ -27,14 +28,14 @@ export default NotificationModal;
 
 const styles = StyleSheet.create({
   blurBackground: {
-    position: 'absolute',
-    left: 0,
-    right: 0,
-    top: 0,
-    bottom: 0,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: 'rgba(0, 0, 0, 0.32)',
+    // position: 'absolute',
+    // left: 0,
+    // right: 0,
+    // top: 0,
+    // bottom: 0,
+    // alignItems: 'center',
+    // justifyContent: 'center',
+    // backgroundColor: 'rgba(0, 0, 0, 0.32)',
   },
   centeredView: {
     flex: 1,

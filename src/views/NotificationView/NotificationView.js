@@ -3,16 +3,12 @@ import {Text, TouchableOpacity, View} from 'react-native';
 import {ScaledSheet} from 'react-native-size-matters';
 import {colors, fonts} from '../../utils/theme';
 
-const NotificationView = ({
-  icon,
-  title,
-  description,
-  callDuration,
-  time,
-  onPress,
-}) => {
+const NotificationView = ({item, onPress}) => {
+  const {icon, title, description, callDuration, time, unread} = item;
   return (
-    <TouchableOpacity onPress={onPress} style={styles.container}>
+    <TouchableOpacity
+      onPress={onPress}
+      style={[styles.container, unread && styles.unreadContainers]}>
       <View style={styles.iconView}>{icon}</View>
       <View style={styles.notifcationDescriptionView}>
         <Text style={styles.titleStyle}>{title}</Text>
@@ -39,6 +35,17 @@ const styles = ScaledSheet.create({
     marginVertical: '5@s',
     borderRadius: '14@s',
     height: '90@s',
+    shadowColor: 'rgba(0, 0, 0, 0.29)',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
+  },
+  unreadContainers: {
+    backgroundColor: colors.whiteColor,
   },
   iconView: {
     backgroundColor: colors.primaryButtonColor,

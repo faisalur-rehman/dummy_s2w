@@ -7,6 +7,57 @@ import NotificationModal from '../../components/Modals/NotificationModal';
 import {colors} from '../../utils/theme';
 import NotificationView from '../../views/NotificationView/NotificationView';
 
+const notificationsArray = [
+  {
+    title: 'High Risk',
+    description: '76%',
+    time: '10:00 AM',
+    callDuration: '10:34',
+    icon: <NotifyFocusedIcon />,
+    unread: true,
+  },
+  {
+    title: 'Prescription received',
+    description: 'Dr. Peter Quiela',
+    time: '10:00 AM',
+    callDuration: '10:34',
+    icon: <NotifyFocusedIcon />,
+    unread: false,
+  },
+  {
+    title: 'Perform Test',
+    description: 'Want to show you for the best...',
+    time: '10:00 AM',
+    callDuration: '10:34',
+    icon: <NotifyFocusedIcon />,
+    unread: true,
+  },
+  {
+    title: 'Call Recommended',
+    description: 'Your Manager recommend to cal...',
+    time: '10:00 AM',
+    callDuration: '10:34',
+    icon: <NotifyFocusedIcon />,
+    unread: false,
+  },
+  {
+    title: 'High Risk',
+    description: '76%',
+    time: '10:00 AM',
+    callDuration: '10:34',
+    icon: <NotifyFocusedIcon />,
+    unread: true,
+  },
+  {
+    title: 'Prescription received',
+    description: 'Dr. Peter Quiela',
+    time: '10:00 AM',
+    callDuration: '10:34',
+    icon: <NotifyFocusedIcon />,
+    unread: false,
+  },
+];
+
 const Notification = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const handleModalVisibility = () => {
@@ -24,17 +75,10 @@ const Notification = () => {
       <FlatList
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.flatlistStyles}
-        data={[1, 2, 3, 4, 5, 6]}
-        keyExtractor={item => item}
-        renderItem={() => (
-          <NotificationView
-            title={'Risk Score'}
-            description="76%"
-            time={'10:00 AM'}
-            callDuration="07:34"
-            icon={<NotifyFocusedIcon />}
-            onPress={handleModalVisibility}
-          />
+        data={notificationsArray}
+        // keyExtractor={item => item}
+        renderItem={({item}) => (
+          <NotificationView item={item} onPress={handleModalVisibility} />
         )}
       />
       <NotificationModal

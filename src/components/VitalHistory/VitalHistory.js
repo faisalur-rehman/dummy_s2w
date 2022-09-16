@@ -17,14 +17,22 @@ const VitalHistory = () => {
       </View>
       <View style={{alignItems: 'center'}}>
         <Progress.Circle
-          size={80}
           // indeterminate={true}
           animated={false}
           progress={0.39}
-          color="green"
+          color={colors.testedClearColor}
+          unfilledColor={colors.unfilledGraphColor}
           showsText
+          borderColor="none"
+          thickness={7}
+          size={90}
           formatText={() => '30.9%\nRisk Score'}
-          textStyle={{fontSize: 12, textAlign: 'center'}}
+          textStyle={{
+            fontSize: 12,
+            textAlign: 'center',
+            color: colors.labelBlackColor,
+            padding: 5,
+          }}
         />
         <Text style={styles.date}>Friday 27th July, 12:34pm</Text>
       </View>

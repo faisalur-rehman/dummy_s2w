@@ -7,7 +7,7 @@ const data = {
   labels: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
   datasets: [
     {
-      data: [3, 4, 4, 3, 4, 5, 6],
+      data: [3, 4, 4, 3, 4, 5, 7],
       colors: [
         () => colors.amberRiskColor,
         () => colors.highRiskColor,
@@ -28,15 +28,14 @@ const chartConfig = {
   backgroundGradientTo: '#08130D',
   backgroundGradientToOpacity: 0,
   color: (opacity = 1) => 'black',
-  barPercentage: 0.5,
-  barRadius: 8,
+  barPercentage: 0.35,
+  barRadius: 6,
 };
 
 const BarGraph = () => {
   return (
     <BarChart
       style={{
-        width: 200,
         paddingRight: 0,
       }}
       data={data}
