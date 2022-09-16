@@ -11,33 +11,36 @@ const InfoModalComponent = ({
   description = 'You have a doctor`s appointment with Dr. Piter Quiela at 10 AM',
   onPress,
   children,
-  info=false,
-  style
+  info = false,
+  style,
 }) => {
-  const options=[
+  const options = [
     {
-      title:"hello",
-      icon:"icon",
-      value:"value"
-
-  },
-
-]
+      title: 'hello',
+      icon: 'icon',
+      value: 'value',
+    },
+  ];
   return (
-    <View style={[styles.container,
-    {...style}]}>
-      {info ?  <></> :<><View style={styles.iconView}>{icon}</View>
-      <Text style={styles.timeStyle}>{time}</Text>
-      <Text style={styles.titleStyle}>{title}</Text>
-      <Text style={styles.descriptionStyle}>{description}</Text>
-      <View style={styles.buttonView}>
-        <PrimaryButton
-          title={'Ok'}
-          onPress={onPress}
-          style={styles.customButtonStyle}
-        />
-      </View> </> }
-      
+    <View style={[styles.container, {...style}]}>
+      {info ? (
+        <></>
+      ) : (
+        <>
+          <View style={styles.iconView}>{icon}</View>
+          <Text style={styles.timeStyle}>{time}</Text>
+          <Text style={styles.titleStyle}>{title}</Text>
+          <Text style={styles.descriptionStyle}>{description}</Text>
+          <View style={styles.buttonView}>
+            <PrimaryButton
+              title={'Ok'}
+              onPress={onPress}
+              style={styles.customButtonStyle}
+            />
+          </View>
+        </>
+      )}
+
       {children}
     </View>
   );
