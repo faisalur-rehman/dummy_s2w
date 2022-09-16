@@ -5,14 +5,19 @@ import CheckBox from '../../assets/images/SvgImages/CheckBox';
 import PdfFileImage from '../../assets/images/SvgImages/PdfFileIcon';
 import MenuDots from '../../assets/images/SvgImages/MenuDots';
 import {colors} from '../../utils/theme';
+
 import {
- 
+  Menu,
+  MenuOptions,
+  MenuOption,
   MenuTrigger,
+  MenuProvider,
 } from 'react-native-popup-menu';
+import EditIcon from '../../assets/images/SvgImages/EditIcon';
+import DeleteIcon from '../../assets/images/SvgImages/DeleteIcon';
 // import { PopUpMenu } from '../Modals/PopUpmenu';
 
-
-const ReportsComponent = ({pending = false, style, onPress}) => {
+const ReportsComponent = ({pending = false, style, onPress,icon}) => {
   return (
     <View style={styles.container}>
       <View style={[styles.mainView, {...style}]}>
@@ -43,19 +48,53 @@ const ReportsComponent = ({pending = false, style, onPress}) => {
             <View style={styles.rightView}>
               <Text style={styles.datetxt}>Jan 2 | </Text>
               <Text style={styles.timetxt}>8:30 PM</Text>
+            
+              {/* <MenuProvider >
+          
+          <Menu onSelect={value => alert(`Selected number: ${value}`)}>
+            <MenuTrigger>
+              <MenuDots />
+            </MenuTrigger>
+            <MenuOptions>
+              <MenuOption
+                value={2}
+                style={{
+                  flexDirection: 'row',
+                  justifyContent: 'flex-start',
+                }}>
+                <EditIcon />
+                <Text style={{color: 'black'}}>Edit</Text>
+              </MenuOption>
+              <MenuOption
+                value={2}
+                style={{
+                  flexDirection: 'row',
+                  justifyContent: 'flex-start',
+                }}>
+                <DeleteIcon />
+                <Text style={{color: 'black'}}>Delete</Text>
+              </MenuOption>
+           
+            </MenuOptions>
+          </Menu>
+        </MenuProvider> */}
 
-              <TouchableOpacity onPress={onPress} style={styles.dots}>
-               
-                <MenuDots />
-                
-               
-              </TouchableOpacity>
+              <View style={styles.dots} >
+                {icon}
+
+
+            
+            </View>
+           
             </View>
           </>
+        
         )}
       </View>
+    
       {/* <View>{children}</View> */}
     </View>
+ 
   );
 };
 
@@ -96,6 +135,9 @@ const styles = ScaledSheet.create({
   },
   dots: {
     marginHorizontal: '15@s',
+    alignSelf:"center",
+    overflow:"visible",
+    marginTop:"5@s"
   },
   timetxt: {
     marginRight: '10@s',
@@ -118,6 +160,9 @@ const styles = ScaledSheet.create({
   },
   filename: {
     color: colors.labelBlackColor,
+  },
+  provider: {
+    marginTop: '15@s',
   },
 });
 

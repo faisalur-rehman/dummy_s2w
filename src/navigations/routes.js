@@ -165,7 +165,7 @@ function Authentication() {
 export const Routes = () => {
   return (
     <NavigationContainer>
-      <Authentication />
+      <Authentication/>
     </NavigationContainer>
   );
 };
