@@ -7,18 +7,16 @@
  */
 
 import React from 'react';
-import { MenuProvider } from 'react-native-popup-menu';
+import {MenuProvider} from 'react-native-popup-menu';
 import {Routes} from './src/navigations/routes';
 import DashboardScreen from './src/screens/dashboard/DashboardScreen';
 
-
 const App = () => {
-  return(
-    <Routes />
-  )
-
-
-  
+  return (
+    <MenuProvider>
+      <Routes />
+    </MenuProvider>
+  );
 };
 
 export default App;

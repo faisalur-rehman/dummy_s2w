@@ -49,35 +49,40 @@ const ReportsComponent = ({pending = false, style, onPress, icon}) => {
               <Text style={styles.datetxt}>Jan 2 | </Text>
               <Text style={styles.timetxt}>8:30 PM</Text>
 
-              {/* <MenuProvider>
-                <Menu onSelect={value => alert(`Selected number: ${value}`)}>
-                  <MenuTrigger>
-                    <MenuDots />
-                  </MenuTrigger>
-                  <MenuOptions>
-                    <MenuOption
-                      value={2}
-                      style={{
-                        flexDirection: 'row',
-                        justifyContent: 'flex-start',
-                      }}>
-                      <EditIcon />
-                      <Text style={{color: 'black'}}>Edit</Text>
-                    </MenuOption>
-                    <MenuOption
-                      value={2}
-                      style={{
-                        flexDirection: 'row',
-                        justifyContent: 'flex-start',
-                      }}>
-                      <DeleteIcon />
-                      <Text style={{color: 'black'}}>Delete</Text>
-                    </MenuOption>
-                  </MenuOptions>
-                </Menu>
-              </MenuProvider> */}
+              <Menu onSelect={() => null}>
+                <MenuTrigger>
+                  <View style={styles.dots}>{icon}</View>
+                </MenuTrigger>
+                <MenuOptions
+                  optionsContainerStyle={{
+                    marginTop: 20,
+                    marginLeft: -40,
+                    padding: 10,
+                    width: 140,
+                    height: 80,
+                  }}>
+                  <MenuOption
+                    value={2}
+                    style={{
+                      flexDirection: 'row',
+                      justifyContent: 'flex-start',
+                    }}>
+                    <EditIcon />
+                    <Text style={{color: 'black'}}>Edit</Text>
+                  </MenuOption>
+                  <MenuOption
+                    value={2}
+                    style={{
+                      flexDirection: 'row',
+                      justifyContent: 'flex-start',
+                    }}>
+                    <DeleteIcon />
+                    <Text style={{color: 'black'}}>Delete</Text>
+                  </MenuOption>
+                </MenuOptions>
+              </Menu>
 
-              <View style={styles.dots}>{icon}</View>
+              {/* <View style={styles.dots}>{icon}</View> */}
             </View>
           </>
         )}
