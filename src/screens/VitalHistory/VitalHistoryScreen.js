@@ -9,10 +9,10 @@ import VitalHistoryView from '../../views/VitalHistory/VitalHistoryView';
 const VitalHistoryScreen = ({navigation}) => {
   return (
     <View style={styles.container}>
+      <Header title="Vital History" navigation={navigation} />
       <ScrollView
         contentContainerStyle={styles.scrollStyles}
         showsVerticalScrollIndicator={false}>
-        <Header title="Vital History" navigation={navigation} />
         <BarGraphView title={'Risk Score'} />
         <VitalHistoryView title={'History'} />
       </ScrollView>

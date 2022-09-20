@@ -1,10 +1,8 @@
 import React from 'react';
-
-import {ScrollView, View} from 'react-native';
+import {ScrollView, StatusBar, View} from 'react-native';
 import {ScaledSheet} from 'react-native-size-matters';
+
 import DetailViewIcon from '../../assets/images/SvgImages/DetailViewIcon';
-import VitalStatsView from '../../views/VitalStats/VitalStatsView';
-// import {VictoryBar, VictoryChart} from 'victory-native';
 import ElevationIcon from '../../assets/images/SvgImages/ElevationIcon';
 import HomeIcon from '../../assets/images/SvgImages/HomeIcon';
 import ScanIcon from '../../assets/images/SvgImages/ScanIcon';
@@ -13,42 +11,53 @@ import ScanButton from '../../components/ScanButton/ScanButton';
 import {colors} from '../../utils/theme';
 import BarGraphView from '../../views/BarGraphView/BarGraphView';
 import ClassStatsView from '../../views/ClassStats/ClassStatsView';
+import VitalStatsView from '../../views/VitalStats/VitalStatsView';
 
 const DashboardScreen = ({navigation}) => {
   return (
-    <ScrollView>
+    <>
+      <StatusBar
+        animated={true}
+        backgroundColor="transparent"
+        barStyle={'dark-content'}
+        hidden={false}
+      />
       <Header
         title={'Hello Ryan'}
         leftIcon={false}
         description="Let`s improve your health with us"
       />
-      <View style={styles.iconView}>
-        <HomeIcon />
-      </View>
+      <ScrollView contentContainerStyle={{backgroundColor: 'white'}}>
+        <View style={styles.iconView}>
+          <HomeIcon />
+        </View>
 
-      <ScanButton
-        valuerange="79.9%"
-        lastscan="Last seen,1hr 23m ago"
-        icon={<ElevationIcon />}
-        scanIcon={<ScanIcon />}
-      />
+        <ScanButton
+          valuerange="79.9%"
+          lastscan="Last seen,1hr 23m ago"
+          icon={<ElevationIcon />}
+          scanIcon={<ScanIcon />}
+        />
 
-      <VitalStatsView
-        title="Vital Stats"
-        icon={<DetailViewIcon />}
-        navigation={navigation}
-      />
-      <BarGraphView
-        title={'Risk Score'}
-        description={'Over the last 7 days, your risk score trending downwards'}
-      />
-      <ClassStatsView
-        title="Class Statistics"
-        totalStudent="Out of 30 students"
-        tutortxt="Tutor:"
-        tutorStatus="Tested Clear"
-      />
-    </ScrollView>
+        <VitalStatsView
+          title="Vital Stats"
+          icon={<DetailViewIcon />}
+          navigation={navigation}
+        />
+        <BarGraphView
+          title={'Risk Score'}
+          description={
+            'Over the last 7 days, your risk score trending downwards'
+          }
+        />
+        <ClassStatsView
+          title="Class Statistics"
+          totalStudent="Out of 30 students"
+          tutortxt="Tutor:"
+          tutorStatus="Tested Clear"
+        />
+      </ScrollView>
+    </>
   );
 };
 

@@ -2,7 +2,7 @@ import React from 'react';
 import {Text, View} from 'react-native';
 import * as Progress from 'react-native-progress';
 import {ScaledSheet} from 'react-native-size-matters';
-import {colors} from '../../utils/theme';
+import {colors, fonts} from '../../utils/theme';
 
 const VitalHistory = () => {
   return (
@@ -57,7 +57,8 @@ const styles = ScaledSheet.create({
     padding: '8@s',
   },
   text: {
-    fontSize: '12@s',
+    fontSize: '14@s',
+    fontFamily: fonts.nunito_semi_bold,
     color: colors.labelBlackColor,
     marginVertical: '5@s',
     fontWeight: '600',

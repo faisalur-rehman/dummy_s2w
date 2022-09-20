@@ -51,6 +51,7 @@ const styles = ScaledSheet.create({
     top: '55%',
     borderWidth: '2@s',
     borderColor: colors.blueBorderColor,
+    backgroundColor: colors.blueBorderColor,
     width: '85%',
   },
   textStyle: {
