@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {ActivityIndicator, Text, TouchableOpacity, View} from 'react-native';
 import {ScaledSheet} from 'react-native-size-matters';
 import {ButtonVariants} from '../../utils/constants';
 import {colors, fonts} from '../../utils/theme';
@@ -12,9 +12,11 @@ const PrimaryButton = ({
   style,
   icon = undefined,
   arrowvector = false,
+  isLoading = false,
 }) => {
   return (
     <TouchableOpacity
+      disabled={isLoading}
       onPress={onPress}
       style={[
         styles.buttonStyles,
@@ -30,7 +32,11 @@ const PrimaryButton = ({
             ? styles.primaryText
             : styles.outlineText,
         ]}>
-        {title}
+        {isLoading ? (
+          <ActivityIndicator size={'small'} color={colors.whiteColor} />
+        ) : (
+          title
+        )}
       </Text>
       {arrowvector ? (
         <View style={styles.arrowIcon}>
