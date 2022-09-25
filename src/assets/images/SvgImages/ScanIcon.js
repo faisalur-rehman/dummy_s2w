@@ -1,10 +1,10 @@
 import * as React from "react"
 // import Svg, { Circle, Path, Defs, Pattern, Use, Image } from 
-import { Image ,} from "react-native"
+import { Image, ImageBackground ,} from "react-native"
 import { ScaledSheet } from "react-native-size-matters"
 
 const ScanIcon = (props) => (
-    <Image 
+    <ImageBackground 
      style={styles.img}
 
     source={require('./Scanicon.png')}/>

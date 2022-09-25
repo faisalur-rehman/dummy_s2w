@@ -12,6 +12,7 @@ import PrimaryButton from '../../components/Buttons/PrimaryButton';
 import {NAVIGATION_ROUTES} from '../../navigations/navigationRoutes';
 import ArrowVector from '../../assets/images/SvgImages/ArrowVector';
 import {colors, fonts} from '../../utils/theme';
+import GetStartedImage from '../../assets/images/SvgImages/GetStarted';
 // import { Icons } from '../../assets/vectorIcons/VectorIcons';
 
 const GetStarted = ({navigation}) => {
@@ -22,10 +23,11 @@ const GetStarted = ({navigation}) => {
   return (
     <View style={{flex: 1}}>
       <StatusBar hidden={true} />
+      {/* <GetStartedImage/> */}
       <Image
         style={styles.backImg}
-        resizeMode="stretch"
-        source={require('../../assets/images/bg.png')}
+        resizeMode="cover"
+        source={require('../../assets/images/background.jpg')}
       />
       <View style={styles.waveView}>
         <ImageBackground
@@ -55,11 +57,15 @@ const GetStarted = ({navigation}) => {
 const styles = ScaledSheet.create({
   backImg: {
     width: '100%',
-    height: '100%',
+    height: '78%',
+    top:0,
+    // position:"absolute"
+    
+    
   },
   waveView: {
     width: '100%',
-    height: '57%',
+    height: '48%',
     position: 'absolute',
     bottom: 0,
   },

@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text, TouchableOpacity, View} from 'react-native';
+import {Text, TouchableOpacity, View,Image} from 'react-native';
 import {ScaledSheet} from 'react-native-size-matters';
 import HeartRateIcon from '../../assets/images/SvgImages/HeartRateIcon';
 import VitalStatComponent from '../../components/VitalStatsComponent/VitalStatComponent';
@@ -12,6 +12,40 @@ import RespiratoryIcon from '../../assets/images/SvgImages/RespiratoryIcon';
 import {colors, fonts} from '../../utils/theme';
 import {NAVIGATION_ROUTES} from '../../navigations/navigationRoutes';
 const VitalStatsView = ({title = '', icon = undefined, navigation}) => {
+
+  const getBackgroundColor = (value) => { 
+    let color; 
+    if (value === 0) { color = ''; } 
+    else if (value >= 1 && value < 25) { color = colors.testedClearColor; } 
+    else if (value >= 25 && value < 50) { color = colors.amberRiskColor; } 
+    else if (value >= 50 && value < 90) { color = colors.highRiskColor; } 
+    // else if (value >= 90) { color = 'green'; } 
+    return color; };
+
+  const CircleView=({style})=>{
+    return(
+
+      <View style={[
+        {
+        width:12,
+        height:12,
+        borderRadius:6,
+        backgroundColor:"black",
+        // right:0,
+        position:"absolute",
+        opacity:5,
+        // top:0,
+        bottom:22,
+        left:22
+        // marginHorizontal:20
+
+         
+      },
+        
+        {...style}
+      ]}></View>
+    )
+  }
   return (
     <>
       <View style={styles.headerStyle}>
@@ -27,38 +61,61 @@ const VitalStatsView = ({title = '', icon = undefined, navigation}) => {
       </View>
       <View style={styles.vitalContainer}>
         <VitalStatComponent
-          style={{borderColor: colors.highRiskColor}}
-          icon={<HeartRateIcon />}
+          style={styles.component1}
+          circle={ <CircleView
+            style={{backgroundColor:getBackgroundColor(24)}}
+          />}
+
+         
+          icon={<HeartRateIcon/>}
           readingTitle="Heart Rate"
           value="67bpm"
         />
-        <VitalStatComponent
-          style={{borderColor: colors.boxborderColor}}
-          icon={<OxygenSaturationIcon />}
-          readingTitle="Oxygen Saturation"
-          value="76%"
-        />
-        <VitalStatComponent
-          style={{borderColor: colors.primaryButtonColor}}
-          icon={<HrvIcon />}
+         <VitalStatComponent
+         circle={ <CircleView
+          style={{backgroundColor:getBackgroundColor(55)}}
+        />}
+          icon={<HrvIcon/>}
           readingTitle="HRV"
           value="16ms"
         />
-        <VitalStatComponent
-          style={{borderColor: colors.primaryButtonColor}}
-          icon={<TempratureIcon />}
+          <VitalStatComponent
+          circle={ <CircleView
+            style={{backgroundColor:getBackgroundColor(29)}}
+          />}
+        
+          icon={<TempratureIcon/>}
           readingTitle="Tempreture"
           value="101F"
         />
         <VitalStatComponent
-          style={{borderColor: colors.boxborderColor}}
-          icon={<StressLevelIcon />}
+          circle={ <CircleView
+            style={{backgroundColor:getBackgroundColor(30)}}
+          />}
+        
+          icon={<StressLevelIcon/>}
           readingTitle="Stress Level"
           value="60%"
         />
         <VitalStatComponent
-          style={{borderColor: colors.highRiskColor}}
-          icon={<RespiratoryIcon />}
+          circle={ <CircleView
+            style={{backgroundColor:getBackgroundColor(67)}}
+          />}
+          
+        
+          icon={<OxygenSaturationIcon/>}
+          readingTitle="Oxygen Saturation"
+          value="76%"
+        />
+       
+      
+        <VitalStatComponent
+          style={styles.component6}
+          circle={ <CircleView
+            style={{backgroundColor:getBackgroundColor(24)}}
+          />}
+         
+          icon={<RespiratoryIcon/>}
           readingTitle="Respiratory Level"
           value="60brpm"
         />
@@ -76,6 +133,7 @@ const styles = ScaledSheet.create({
     alignItems: 'center',
     margin: '5@s',
     flexWrap: 'wrap',
+    
   },
   headerStyle: {
     flexDirection: 'row',
@@ -90,4 +148,10 @@ const styles = ScaledSheet.create({
     color: colors.labelBlackColor,
     fontFamily: fonts.nunito_bold,
   },
+  component1:{
+    borderTopLeftRadius:"40@s"
+  },
+  component6:{
+    borderBottomRightRadius:"40@s"
+  }
 });

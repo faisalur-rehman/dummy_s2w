@@ -1,7 +1,9 @@
 import React from 'react';
-import {TouchableOpacity, View, Text,Platform} from 'react-native';
+import {TouchableOpacity, View, Text,Platform,Image} from 'react-native';
 import {ScaledSheet} from 'react-native-size-matters';
 import {colors} from '../../utils/theme';
+import * as Progress from 'react-native-progress'
+
 
 //  import PropTypes from 'prop-types'
 const ScanButton = ({
@@ -22,7 +24,31 @@ const ScanButton = ({
       </View>
       <Text style={styles.txt}>{lastscan}</Text>
     </View>
-    <View style={styles.iconview}>{scanIcon && scanIcon}</View>
+    <View style={{alignItems: 'center',marginRight:15}}>
+        <Progress.Circle
+          // indeterminate={true}
+          animated={false}
+          progress={0.79}
+          color={colors.highRiskColor}
+          unfilledColor={colors.unfilledGraphColor}
+          showsText
+          borderColor="none"
+          thickness={7}
+          size={65}
+          formatText={() =>
+            <View>
+              <Image 
+              style={{width:32,height:32,alignSelf:"center"}}
+            source={require('../../assets/images/scan.png')}/> 
+
+            </View> }
+          textStyle={{
+        alignSelf:"center"
+          }}
+        />
+        {/* <Text style={styles.date}>Friday 27th July, 12:34pm</Text> */}
+      </View>
+    {/* <View style={styles.iconview}>{scanIcon && scanIcon}</View> */}
   </TouchableOpacity>
 );
 const styles = ScaledSheet.create({

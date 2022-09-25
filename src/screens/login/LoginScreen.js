@@ -17,6 +17,7 @@ import {colors, fonts} from '../../utils/theme';
 
 const LoginScreen = ({navigation}) => {
   const {isLoading, handleApi} = useSendApiRequest(login);
+
   const [showPassword, setShowPassword] = useState(false);
 
   const loginValidationSchema = Yup.object().shape({
@@ -27,6 +28,7 @@ const LoginScreen = ({navigation}) => {
   });
 
   const handleLogin = async values => {
+    // console.log('Inside hanndle login');
     try {
       const response = await handleApi(values);
       Storage.storeData('token', response.accessToken);

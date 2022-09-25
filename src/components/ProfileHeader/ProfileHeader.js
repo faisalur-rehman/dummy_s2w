@@ -7,13 +7,19 @@ import ProfileHeaderIcon from '../../assets/images/SvgImages/ProfileheaderIcon';
 import LogOutImage from '../../assets/images/SvgImages/LogOutImage';
 import {colors} from '../../utils/theme';
 import InfoImage from '../../assets/images/SvgImages/InfoImage';
+import ProfileEdit from '../../assets/images/SvgImages/ProfileEdit';
 
-const ProfileHeader = ({title, description = '', leftIcon = true,onPress,handlePress,profileicon}) => {
+const ProfileHeader = ({title, description = '', leftIcon = true,onPressEdit,onPressEditImg,profileicon,onPressInfo}) => {
   return (
     <View style={styles.container}>
       <View style={{position: 'absolute', bottom: 0, left: 0}}>
         <HeaderBottomEllipse />
       </View>
+      <TouchableOpacity 
+         onPress={onPressInfo}
+      style={{position: 'absolute', bottom: 0, right: 30}}>
+       <InfoImage/>
+      </TouchableOpacity>
       <View
         style={{
           position: 'absolute',
@@ -22,9 +28,11 @@ const ProfileHeader = ({title, description = '', leftIcon = true,onPress,handleP
         }}>
         <HeaderProfileRightEllipse />
         <TouchableOpacity
+       
           style={{position: 'absolute', alignSelf: 'center', top: 47}}>
           <LogOutImage />
         </TouchableOpacity>
+      
       </View>
       <View
         style={{
@@ -43,22 +51,23 @@ const ProfileHeader = ({title, description = '', leftIcon = true,onPress,handleP
         borderRadius:80/2,
         justifyContent:"center",
         alignItems:"center"}}>
-          <TouchableOpacity onPress={handlePress}>
+          <TouchableOpacity onPress={onPressEditImg}>
             {profileicon && profileicon}
           {/* <ProfileHeaderIcon  /> */}
           </TouchableOpacity>
          
           <TouchableOpacity
-          onPress={onPress}
+          onPress={onPressEdit}
             style={{position: 'absolute', right: 0, top: 55, left: 55}}>
-            <InfoImage />
+            {/* <InfoImage /> */}
+            <ProfileEdit/>
           </TouchableOpacity>
         </View>
 
-        <View style={[description && {marginLeft: 15}]}>
+        <View style={[description && {marginLeft: 5,}]}>
           <Text style={styles.titleStyle}>{title}</Text>
           {description && (
-            <Text style={styles.descriptionStyle}>{description}</Text>
+            <Text numberOfLines={2} style={styles.descriptionStyle}>{description}</Text>
           )}
         </View>
       </View>
@@ -77,12 +86,13 @@ const styles = ScaledSheet.create({
     // backgroundColor:"green",
   },
   titleStyle: {
-    fontSize: '18@s',
+    fontSize: '16@s',
     fontWeight: '700',
     color: colors.labelBlackColor,
   },
   descriptionStyle: {
     fontSize: '12@s',
     color: colors.labelBlackColor,
+    width:180
   },
 });

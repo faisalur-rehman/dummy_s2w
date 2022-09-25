@@ -1,8 +1,9 @@
 import {useNavigation} from '@react-navigation/native';
 import React, {useEffect} from 'react';
-import {ImageBackground, View} from 'react-native';
+import {ImageBackground, View,Image} from 'react-native';
 import {ScaledSheet} from 'react-native-size-matters';
 import {NAVIGATION_ROUTES} from '../../navigations/navigationRoutes';
+import SplashImage from '../../assets/images/SvgImages/splashImage';
 
 const Splash = () => {
   const navigation = useNavigation();
@@ -13,11 +14,15 @@ const Splash = () => {
     }, 1500);
   }, []);
   return (
+    // <SplashImage/>
     <View style={styles.container}>
-      <ImageBackground
-        resizeMode="cover"
+      {/* <SplashImage/> */}
+    
+     
+      <Image
+      
         style={styles.img}
-        source={require('../../assets/images/Splash.png')}
+        source={require('../../assets/images/SplashFrame.png')}
       />
     </View>
   );
@@ -27,10 +32,15 @@ export default Splash;
 
 const styles = ScaledSheet.create({
   container: {
-    flex: 1,
+  
+  
+   flex:1,
   },
-  img: {
-    width: '100%',
-    height: '100%',
-  },
+  img:{
+    width:"100%",
+    height:"100%",
+    resizeMode:"cover"
+
+  }
+ 
 });

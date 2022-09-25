@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 import {Modal, StyleSheet, View, Text, TouchableOpacity} from 'react-native';
 import NotifyFocusedIcon from '../../assets/images/SvgImages/NotifyFocusedIcon';
 import {colors} from '../../utils/theme';
@@ -8,22 +8,32 @@ import MobileIcon from '../../assets/images/SvgImages/MobileIcon';
 import {ScaledSheet} from 'react-native-size-matters';
 import RoleIcon from '../../assets/images/SvgImages/RoleIcon';
 import OrganizationIcon from '../../assets/images/SvgImages/OrganizationIcon';
+import {Formik} from 'formik';
+import * as Yup from 'yup';
 
-const ProfileModal = ({modalVisible, handleModalClose}) => {
+const ProfileModal = ({
+  modalVisible, 
+  handleModalClose,
+  getData
+}) => {
+  const [profileData, setProfileData] = useState(getData);
+
+  console.log("data at info  modal",getData)
+  
   const data = [
     {
       key: '1',
       icon: <MobileIcon />,
       title: 'Phone Number',
-      value: '(684) 555-0102',
+      value: getData?.phone
     },
     {
       key: '2',
       icon: <OrganizationIcon />,
       title: 'Organization Code',
-      value: 'MN4123',
+      value: getData?.companyId,
     },
-    {key: '3', icon: <RoleIcon />, title: 'Role', value: 'Student'},
+    {key: '3', icon: <RoleIcon />, title: 'Role', value: getData?.roleName},
     {key: '4', icon: <OrganizationIcon />, title: 'Class', value: '8th'},
   ];
   return (
@@ -50,6 +60,48 @@ const ProfileModal = ({modalVisible, handleModalClose}) => {
             </InfoModalComponent>
           </View>
         </View>
+        {/* <Formik
+          initialValues={{loginName: 'a@gmail.com', password: '1'}}
+          // validationSchema={loginValidationSchema}
+          // onSubmit={handleLogin}
+          >
+          {({handleChange, handleBlur, handleSubmit, values, errors}) => (
+            <>
+              <TextField
+                placeholder="abc@gmail.com"
+                label="Email"
+                onChangeText={handleChange('loginName')}
+                onBlur={handleBlur('loginName')}
+                value={values.loginName}
+                error={errors.loginName}
+              />
+              <TextField
+                placeholder="Password"
+                label="Password"
+                secureTextEntry={showPassword ? false : true}
+                icon={showPassword ? <PasswordEyeIcon /> : <HiddenEye />}
+                onPress={() => setShowPassword(prev => !prev)}
+                onChangeText={handleChange('password')}
+                onBlur={handleBlur('password')}
+                value={values.password}
+                error={errors.password}
+              />
+              <TouchableOpacity
+                onPress={() =>
+                  navigation.navigate(NAVIGATION_ROUTES.RESET_PASSWORD)
+                }>
+                <Text style={styles.forgotPassword}>Forgot Password?</Text>
+              </TouchableOpacity>
+              <View style={styles.buttonView}>
+                <PrimaryButton
+                  title={'Login'}
+                  onPress={handleSubmit}
+                  isLoading={isLoading}
+                />
+              </View>
+            </>
+          )}
+        </Formik> */}
       </Modal>
     </View>
   );

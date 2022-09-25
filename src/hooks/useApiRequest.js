@@ -1,4 +1,5 @@
 import {useState} from 'react';
+import {err} from 'react-native-svg/lib/typescript/xml';
 import {handleError} from '../utils/helpers';
 
 export const useSendApiRequest = apiFunc => {
@@ -6,6 +7,7 @@ export const useSendApiRequest = apiFunc => {
   const [data, setData] = useState(null);
 
   const handleApi = async apiData => {
+    // console.log('inside handleapi function');
     setIsLoading(true);
     try {
       const {data: result} = await apiFunc(apiData);
@@ -14,9 +16,12 @@ export const useSendApiRequest = apiFunc => {
 
       return result;
     } catch (error) {
+      console.log('error', error);
+      console.log('error response', error.response);
       handleError(
         error.response?.data?.errors[0]?.description || 'Something went wrong.',
         'Validation Error',
+        
       );
     }
     setIsLoading(false);

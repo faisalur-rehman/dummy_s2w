@@ -1,5 +1,5 @@
-import React from 'react';
-import {ScrollView, StatusBar, View} from 'react-native';
+import React,{useEffect,useState} from 'react';
+import {ScrollView, StatusBar, View,Text} from 'react-native';
 import {ScaledSheet} from 'react-native-size-matters';
 
 import DetailViewIcon from '../../assets/images/SvgImages/DetailViewIcon';
@@ -12,8 +12,29 @@ import {colors} from '../../utils/theme';
 import BarGraphView from '../../views/BarGraphView/BarGraphView';
 import ClassStatsView from '../../views/ClassStats/ClassStatsView';
 import VitalStatsView from '../../views/VitalStats/VitalStatsView';
+import { useSendApiRequest } from '../../hooks/useApiRequest';
+import {getProfile} from '../../apis/auth';
+
 
 const DashboardScreen = ({navigation}) => {
+  const {isLoading, handleApi} = useSendApiRequest(getProfile);
+  const [profileData, setProfileData] = useState();
+
+  const handleProfile = async () => {
+    try {
+      const response = await handleApi();
+      // console.log('response in profile screen', response);
+      setProfileData(response);
+      // setEmptyPhoto(true);
+      // console.log("get profile data",response);
+    } catch (_) {}
+  };
+
+  useEffect(() => {
+    handleProfile();
+  }, []);
+
+
   return (
     <>
       <StatusBar
@@ -23,27 +44,30 @@ const DashboardScreen = ({navigation}) => {
         hidden={false}
       />
       <Header
-        title={'Hello Ryan'}
+        title={"Hello," + profileData?.firstName}
         leftIcon={false}
         description="Let`s improve your health with us"
       />
       <ScrollView contentContainerStyle={{backgroundColor: 'white'}}>
         <View style={styles.iconView}>
           <HomeIcon />
+          <Text style={styles.text}>Stay at home</Text>
         </View>
 
-        <ScanButton
-          valuerange="79.9%"
-          lastscan="Last seen,1hr 23m ago"
-          icon={<ElevationIcon />}
-          scanIcon={<ScanIcon />}
-        />
+       
 
         <VitalStatsView
           title="Vital Stats"
           icon={<DetailViewIcon />}
           navigation={navigation}
         />
+         <ScanButton
+          valuerange="79.9%"
+          lastscan="Last seen,1hr 23m ago"
+          icon={<ElevationIcon />}
+          scanIcon={<ScanIcon />}
+        />
+        
         <BarGraphView
           title={'Risk Score'}
           description={
@@ -115,5 +139,14 @@ const styles = ScaledSheet.create({
   iconView: {
     marginHorizontal: '12@s',
     marginVertical: '5@s',
+    flexDirection:"row",
+    alignItems:"center"
   },
+  text:{
+    fontSize:16,
+    marginHorizontal:5,
+   top:5,
+   color:colors.labelBlackColor
+
+  }
 });
